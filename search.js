@@ -6,13 +6,22 @@ function searchShow(){
     var text = $('#input').val();
     var encoded_text = encodeURIComponent(text);
     console.log(encoded_text);
-    alert("You entered: " + text);
 
     // Creates the URL used for API call
-    var url = "www.omdbapi.com/?t=" + encoded_text + "&apikey=" + key;
+    var url = "http://www.omdbapi.com/?type=series&t=" + encoded_text + "&apikey=" + key;
     console.log(url);
 
     $.getJSON(url, function(json) {
         console.log(json);
+        // Check for errors
+        if(json.Response == "False"){
+            console.log("Show not found");
+            window.location.href = "notfound.html";
+        }
+        else {
+            // If found, go to graphing page with parameters
+            console.log("Show found: " + json.Title);
+            window.location.href = "graph.html?id=" + json.imdbID + "&seasons=" + json.totalSeasons; 
+        }
     });
 }
