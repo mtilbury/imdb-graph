@@ -4,25 +4,12 @@
         <title>TV Graph</title>
         <link rel = "stylesheet" type = "text/css" href = "style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="graph.js"></script>
     </head>
 
     <body>
         <h2>Insert graph here</h2>
         <div id=list>
-            <script>
-                // Get url parameters
-                var url_text = window.location.href;
-                var url = new URL(url_text);
-                var imdb_id = url.searchParams.get("id");
-                var num_seasons = url.searchParams.get("seasons");
-                num_seasons = parseInt(num_seasons);
-
-                // for each season, make api call for season ratings
-                var div_list = $('#list');
-                for(var season = 1; season <= num_seasons; ++season){
-                    div_list.append('<p>Season ' + season + '</p>');
-                }
-            </script>
         </div>
     </body>
 </html>
