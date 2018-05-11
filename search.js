@@ -8,7 +8,7 @@ function searchShow(){
     console.log(encoded_text);
 
     // Creates the URL used for API call
-    var url = "https://www.omdbapi.com/?type=series&t=" + encoded_text + "&apikey=" + key;
+    var url = "https://omdbapi.com/?type=series&t=" + encoded_text + "&apikey=" + key;
     console.log(url);
 
     $.getJSON(url, function(json) {
