@@ -27,6 +27,7 @@ $(document).ready(function() {
             if(counter == num_seasons){
                 $("#title").append(json.Title);
                 draw_graph(seasons);
+                $("h3:first").append("Episode list:");
                 write_table(seasons);
             }
         })
