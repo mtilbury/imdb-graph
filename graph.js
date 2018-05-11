@@ -25,6 +25,7 @@ $(document).ready(function() {
             ++counter;
             console.log(seasons);
             if(counter == num_seasons){
+                $("#title").append(json.Title);
                 draw_graph(seasons);
                 write_table(seasons);
             }
@@ -39,7 +40,8 @@ function draw_graph(seasons){
     var cum_ep = 0;
     seasons.forEach(function(season, s){
         var new_season = {};
-        new_season.label = "Season " + s.toString();
+        new_season.label = "Season " + (s + 1).toString();
+        new_season.backgroundColor = getColor(s);
         new_season.data = [];
         season.forEach(function(episode, e){
             var new_ep = {};
@@ -68,6 +70,9 @@ function draw_graph(seasons){
                     position: 'bottom'
                 }]
             }
+            // tooltips: {
+            //     intersect: 'false'
+            // }
         }
     });
 }
@@ -89,5 +94,19 @@ function write_table(seasons){
         for(var episode = 1; episode <= seasons[season-1].length; ++episode){
             table.append('<tr><td>' + seasons[season-1][episode-1].Title + '</td><td>' + seasons[season-1][episode-1].imdbRating + '</td>' + '</tr>');
         }
+    }
+}
+
+function getColor(season){
+    // Generates a color based on season number
+    switch(season % 4) {
+        case 0:
+            return "red";
+        case 1:
+            return "blue";
+        case 2:
+            return "pink";
+        case 3:
+            return "green";
     }
 }
