@@ -15,7 +15,7 @@ $(document).ready(function() {
     for(var season = 1; season <= num_seasons; ++season){
         (function(season){
         // For each season, make an API call
-        var api_call = "https://omdbapi.com/?i=" + imdb_id + "&Season=" + season.toString() + "&apikey=7934ac8e";
+        var api_call = "http://www.omdbapi.com/?i=" + imdb_id + "&Season=" + season.toString() + "&apikey=7934ac8e";
         console.log(api_call);
         $.getJSON(api_call, function(json) {
             console.log(json);
