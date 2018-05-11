@@ -42,6 +42,7 @@ function draw_graph(seasons){
         var new_season = {};
         new_season.label = "Season " + (s + 1).toString();
         new_season.backgroundColor = getColor(s);
+        // new_season.pointHitRadius = "1";
         new_season.data = [];
         season.forEach(function(episode, e){
             var new_ep = {};
@@ -69,10 +70,24 @@ function draw_graph(seasons){
                     type: 'linear',
                     position: 'bottom'
                 }]
+            },
+            tooltips: {
+                callbacks: {
+                    title: function(tooltipItem, data) {
+                        // Returns title of episode
+                        return seasons[tooltipItem[0].datasetIndex][tooltipItem[0].index].Title;
+                    },
+                    label: function(tooltipItem, data) {
+                        // Returns score
+                        return "Score: " + seasons[tooltipItem.datasetIndex][tooltipItem.index].imdbRating;
+                    },
+                    afterLabel: function(tooltipItem, data) {
+                        // Returns season and episode number
+                        return "S" + (tooltipItem.datasetIndex + 1) + " E" + (tooltipItem.index + 1);
+                    }
+                },
+                displayColors: false
             }
-            // tooltips: {
-            //     intersect: 'false'
-            // }
         }
     });
 }
