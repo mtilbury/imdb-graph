@@ -1,0 +1,40 @@
+* {
+    font-family: Helvetica, sans-serif;
+}
+
+form {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+div#outer {
+    /* Helps in centering content vertically */
+    position: relative;
+    height: 100vh;
+}
+
+div#content {
+    /* Centers content vertically */
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-200%);
+}
+
+/* Style for input field and search button */
+input[type=text] {
+    width: 50%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    padding:14px 22px;
+    box-sizing: border-box;
+    background-color: rgb(192, 192, 192);
+    text-decoration: none;
+    border: none;
+}
