@@ -20,8 +20,8 @@ div#content {
     /* Centers content vertically */
     width: 100%;
     position: absolute;
-    top: 50%;
-    transform: translateY(-200%);
+    top: 35%;
+    transform: translateY(-50%);
 }
 
 /* Style for input field and search button */
