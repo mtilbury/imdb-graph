@@ -1,10 +1,14 @@
 // Run script on load
 $(document).ready(function() {
     // Get url parameters
-    var url_text = window.location.href;
-    var url = new URL(url_text);
-    var imdb_id = url.searchParams.get("id");
-    var num_seasons = url.searchParams.get("seasons");
+    // var url_text = window.location.href;
+    // var url = new URL(url_text);
+    // var imdb_id = url.searchParams.get("id");
+    // var num_seasons = url.searchParams.get("seasons");
+    var imdb_id = getQueryStringValue("id");
+    var num_seasons = getQueryStringValue("seasons");
+    console.log("New legacy url parsing");
+    
     num_seasons = parseInt(num_seasons);
 
     // OMDb API can return episode ratings list for one season at a time
@@ -131,3 +135,7 @@ function getColor(season){
             return "green";
     }
 }
+
+function getQueryStringValue (key) {  
+    return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));  
+  }  
