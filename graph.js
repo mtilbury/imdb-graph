@@ -66,6 +66,11 @@ function draw_graph(seasons){
             datasets: datasets
         },
         options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            // legend: {
+            //     display: false
+            // },
             scales: {
                 xAxes: [{
                     type: 'linear',
@@ -121,7 +126,7 @@ function getColor(season){
         case 1:
             return "blue";
         case 2:
-            return "pink";
+            return "orange";
         case 3:
             return "green";
     }

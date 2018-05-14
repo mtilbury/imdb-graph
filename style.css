@@ -38,3 +38,29 @@ input[type=submit] {
     text-decoration: none;
     border: none;
 }
+
+/* For graph.html */
+
+#outer-container {
+    width: 100%; 
+    text-align:center;
+}
+
+#chart-container {
+    height: 50%; 
+    max-height: 600px; 
+    margin: 0 auto; 
+    padding: 0px 10%;
+}
+
+canvas#graph {
+    height: 100%; 
+    width: 100%
+}
+
+/* Mobile devices will have no padding around chart */
+@media screen and (max-width: 600px) {
+    #chart-container {
+        padding: 0px 0px 0px 0px;
+    } 
+}
